@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang chủ</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body style="background-color: #2b2d42">
+  <nav class="navbar navbar-expand-lg" style="background-color: #ef233c">
+    <div class="container-fluid">
+      <a class="navbar-brand h1" href="#">GYMeo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn" type="submit" style="background-color: #8d99ae">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <img src="../LayoutKhach/img/anhBiaChinh.jpg" alt="quãng cáo" class="img-fluid">
+  </br>
+  </br>
+  </br>
+  <div>
+    <h3 class=" text-center " style="background-color: #EDF2F4;">
+      Gói Hội viên
+    </h3>
+    <div class="container mt-4">
+      <div class="row row-cols-ms-3 g-4">
+        
+        <div class="col">
+          <div class="card" style="width: 18rem; background-color: #EDF2F4;">
+            <img src="../LayoutKhach/img/goiTuan.jpg" alt="gói tuần" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-text">Gói 1 tuần</h5>
+              <p class="card-text">
+                - Có PT hướng dẫn
+              </p>
+              <p class="card-text">
+                - Sữ dụng tất cả các tiện ích của phòng tập
+              </p>
+              <p class="card-text">
+                - Trở thành viên trong hội
+              </p>
+              <p class="card-text">
+                Giá: 59$
+              </p>
+
+              <a href="" class="btn btn-danger"> Mua</a>
+              <a href="" class="btn btn-danger"> Xem chi tiết</a>
+
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card" style="width: 18rem; background-color: #EDF2F4;">
+            <img src="../LayoutKhach/img/goi1Thang.jpg" alt="gói tháng" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-text">Gói 1 tháng</h5>
+              <p class="card-text">
+                - Có PT hướng dẫn
+              </p>
+              <p class="card-text">
+                - Sữ dụng tất cả các tiện ích của phòng tập
+              </p>
+              <p class="card-text">
+                - Trở thành viên trong hội
+              </p>
+              <p class="card-text">
+                Giá: 199$
+              </p>
+
+              <a href="" class="btn btn-danger"> Mua</a>
+              <a href="" class="btn btn-danger"> Xem chi tiết</a>
+
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card" style="width: 18rem; background-color: #EDF2F4;">
+            <img src="../LayoutKhach/img/goiNam.jpg" alt="gói Tháng" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-text">Gói 6 tháng</h5>
+              <p class="card-text">
+                - Có PT hướng dẫn
+              </p>
+              <p class="card-text">
+                - Sữ dụng tất cả các tiện ích của phòng tập
+              </p>
+              <p class="card-text">
+                - Trở thành viên trong hội
+              </p>
+              <p class="card-text">
+                Giá: 1111$
+              </p>
+
+              <a href="" class="btn btn-danger"> Mua</a>
+              <a href="" class="btn btn-danger"> Xem chi tiết</a>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+    
+    @RenderBody()
+
+
+
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js "
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz "
+    crossorigin="anonymous "></script>
+</body>
+
+</html>
