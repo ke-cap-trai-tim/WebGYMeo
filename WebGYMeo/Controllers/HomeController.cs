@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebGYMeo.Models;
 
@@ -18,9 +18,12 @@ namespace WebGYMeo.Controllers
         public IActionResult Index()
         {
             var lstSanPham = db.SanPhams.ToList();
+            var lstGoi = db.GoiDichVus.ToList();
 
-            return View(lstSanPham);
+            return View(lstSanPham) ;
         }
+
+       
 
         public IActionResult Privacy()
         {

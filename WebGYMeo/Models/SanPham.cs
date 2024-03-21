@@ -13,7 +13,7 @@ public partial class SanPham
 
     public double Gia { get; set; }
 
-    public byte[]? AnhSanPham { get; set; }
+    public string? AnhSanPham { get; set; }
 
     public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; } = new List<HoaDonSanPham>();
 }

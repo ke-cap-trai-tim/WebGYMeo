@@ -67,6 +67,9 @@ public partial class QlGymContext : DbContext
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("id_goi");
+            entity.Property(e => e.AnhGoi)
+                .HasMaxLength(50)
+                .HasColumnName("anh_goi");
             entity.Property(e => e.Gia).HasColumnName("gia");
             entity.Property(e => e.TenGoi)
                 .HasMaxLength(50)
@@ -175,7 +178,7 @@ public partial class QlGymContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("id_khach");
             entity.Property(e => e.AnhDaiDien)
-                .HasColumnType("image")
+                .HasMaxLength(50)
                 .HasColumnName("anh_dai_dien");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -220,7 +223,7 @@ public partial class QlGymContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("id_nhan_vien");
             entity.Property(e => e.AnhDaiDien)
-                .HasColumnType("image")
+                .HasMaxLength(50)
                 .HasColumnName("anh_dai_dien");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.IbGioiTinh)
@@ -283,7 +286,7 @@ public partial class QlGymContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("id_san_pham");
             entity.Property(e => e.AnhSanPham)
-                .HasColumnType("image")
+                .HasMaxLength(50)
                 .HasColumnName("anh_san_pham");
             entity.Property(e => e.Gia).HasColumnName("gia");
             entity.Property(e => e.TenSanPham)

@@ -21,9 +21,9 @@ public partial class NhanVien
 
     public string Mk { get; set; } = null!;
 
-    public byte[]? AnhDaiDien { get; set; }
-
     public string IbGioiTinh { get; set; } = null!;
+
+    public string? AnhDaiDien { get; set; }
 
     public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; } = new List<HoaDonSanPham>();
 
