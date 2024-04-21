@@ -2,46 +2,15 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_layoutKhach.cshtml";
 }
-@model List<SanPham>
-@* <h3 class=" text-center " style="background-color: #EDF2F4;">
-    Gói Hội viên
-</h3>
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<SanPham>
 
-<div class="container mt-4">
-    <div class="row row-cols-ms-3 g-4">
-        @foreach (var item in Model)
-        {
-
-            <div class="col">
-                <div class="card" style="width: 18rem; background-color: #EDF2F4;">
-                    <img src=@Url.Content("../img/Goi/"+item.AnhSanPham) alt="gói tuần" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-text">@item.TenSanPham</h5>
-                        <p class="card-text">
-                            @item.ThongTinChiTiet
-                        </p>
-
-                        <p class="card-text">
-                            @item.Gia
-                        </p>
-
-                        <a href="" class="btn btn-danger"> Mua</a>
-                        <a href="" class="btn btn-danger"> Xem chi tiết</a>
-
-                    </div>
-
-                </div>
-            </div>
-
-        }
-    </div>
-</div> *@
-
-
+<img src="../LayoutKhach/img/anhBiaChinh.jpg" alt="quãng cáo" class="img-fluid">
 <h3 class=" text-center " style="background-color: #EDF2F4;">
     Sản phẩm hỗi trợ
 </h3>
 </br>
+
 
 <div class="container mt-4">
     <div class="row row-cols-ms-3 g-4">
@@ -62,7 +31,8 @@
                         </p>
 
                         <a href="" class="btn btn-danger"> Mua</a>
-                        <a href="" class="btn btn-danger"> Xem chi tiết</a>
+                        <a asp-controller="Home" asp-action="ChiTietSanPham"
+                           asp-route-maSp="@item.IdSanPham" class="btn btn-danger"> Xem chi tiết</a>
 
                     </div>
 
@@ -70,5 +40,11 @@
             </div>
     
         }
+        <div class="product__pagination">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+        </div>
+      
+               
+     
     </div>
 </div>

@@ -1,0 +1,64 @@
+﻿@using WebGYMeo.Models
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<SanPham>
+@{
+    ViewData["Title"] = "DanhMucSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<h1>Danh mục sản phảm</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    @TempData["Message"]
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Thông tin chi tiết 
+            </th>
+            <th>
+                Giá 
+            </th>
+           
+            <th>
+                Giới thiệt sản phẩm
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThongTinChiTiet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DongGioiThieuSanPham)
+            </td>
+            <td>
+                <a asp-action="SuaSanPham" asp-route-maSanPham="@item.IdSanPham">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdSanPham">Details</a> |
+                    <a asp-action="XoaSanPham" asp-route-maSanPham="@item.IdSanPham">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("DanhMucSanPham", new { page = page }))
+</div>

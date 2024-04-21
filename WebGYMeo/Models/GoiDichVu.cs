@@ -13,5 +13,7 @@ public partial class GoiDichVu
 
     public string? AnhGoi { get; set; }
 
+    public string? ChiTietGoi { get; set; }
+
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
 }

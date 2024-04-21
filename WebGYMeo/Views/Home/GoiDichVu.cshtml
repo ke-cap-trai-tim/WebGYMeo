@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_layoutKhach.cshtml";
+}
+@model List<GoiDichVu>
+<img src="../LayoutKhach/img/anh_bia_dich_vu.jpg" alt="quãng cáo" class="img-fluid">
+<h3 class=" text-center " style="background-color: #EDF2F4;">
+    Gói Hội viên
+</h3>
+
+<div class="container mt-4">
+    <div class="row row-cols-ms-3 g-4">
+        @foreach (var item in Model)
+        {
+
+            <div class="col">
+                <div class="card" style="width: 18rem; background-color: #EDF2F4;">
+                    <img src=@Url.Content("../img/Goi/"+item.AnhGoi) alt="gói tuần" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-text">@item.TenGoi</h5>
+
+                        <p class="card-text">
+                            @item.Gia
+                        </p>
+
+                        <a href="" class="btn btn-danger"> Mua</a>
+                        <a href="" class="btn btn-danger"> Xem chi tiết</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+

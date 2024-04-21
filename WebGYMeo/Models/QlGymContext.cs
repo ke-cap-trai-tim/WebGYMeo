@@ -15,6 +15,8 @@ public partial class QlGymContext : DbContext
     {
     }
 
+    public virtual DbSet<AnhSanPhamChiTiet> AnhSanPhamChiTiets { get; set; }
+
     public virtual DbSet<ChucVu> ChucVus { get; set; }
 
     public virtual DbSet<GoiDichVu> GoiDichVus { get; set; }
@@ -37,6 +39,29 @@ public partial class QlGymContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AnhSanPhamChiTiet>(entity =>
+        {
+            entity.HasKey(e => e.TenFileAnh);
+
+            entity.ToTable("Anh_san_pham_chi_tiet");
+
+            entity.Property(e => e.TenFileAnh)
+                .HasMaxLength(50)
+                .HasColumnName("ten_file_anh");
+            entity.Property(e => e.IdSanPham)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("id_san_pham");
+            entity.Property(e => e.ViTri)
+                .HasMaxLength(200)
+                .HasColumnName("vi_tri");
+
+            entity.HasOne(d => d.IdSanPhamNavigation).WithMany(p => p.AnhSanPhamChiTiets)
+                .HasForeignKey(d => d.IdSanPham)
+                .HasConstraintName("FK_Anh_san_pham_chi_tiet_San_pham");
+        });
+
         modelBuilder.Entity<ChucVu>(entity =>
         {
             entity.ToTable("Chuc_vu");
@@ -70,6 +95,9 @@ public partial class QlGymContext : DbContext
             entity.Property(e => e.AnhGoi)
                 .HasMaxLength(50)
                 .HasColumnName("anh_goi");
+            entity.Property(e => e.ChiTietGoi)
+                .HasMaxLength(1000)
+                .HasColumnName("chi_tiet_goi");
             entity.Property(e => e.Gia).HasColumnName("gia");
             entity.Property(e => e.TenGoi)
                 .HasMaxLength(50)
@@ -288,6 +316,9 @@ public partial class QlGymContext : DbContext
             entity.Property(e => e.AnhSanPham)
                 .HasMaxLength(50)
                 .HasColumnName("anh_san_pham");
+            entity.Property(e => e.DongGioiThieuSanPham)
+                .HasMaxLength(500)
+                .HasColumnName("dong_gioi_thieu_san_pham");
             entity.Property(e => e.Gia).HasColumnName("gia");
             entity.Property(e => e.TenSanPham)
                 .HasMaxLength(50)
