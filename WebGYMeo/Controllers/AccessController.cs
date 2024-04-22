@@ -15,7 +15,7 @@ namespace WebBanVaLi.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("GioiThieu", "Home");
             }
         }
 
@@ -30,7 +30,7 @@ namespace WebBanVaLi.Controllers
                     HttpContext.Session.SetString("TenDangNhap", u.TenDangNhap.ToString());
                    
                    
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("GioiThieu", "Home");
 
                 
                 }

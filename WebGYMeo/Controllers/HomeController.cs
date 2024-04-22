@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WebGYMeo.Models;
+using WebGYMeo.Models.Authentication;
 using X.PagedList;
 
 namespace WebGYMeo.Controllers
@@ -17,6 +18,7 @@ namespace WebGYMeo.Controllers
             _logger = logger;
         }
 
+        [Authentication]
         public IActionResult Index(int? page)
         {
             var lstSanPham = db.SanPhams.AsNoTracking().OrderBy(x => x.TenSanPham);
@@ -27,6 +29,7 @@ namespace WebGYMeo.Controllers
             return View(lst);
         }
 
+        [Authentication]
         public IActionResult GoiDichVu()
         {
             var lstGoi = db.GoiDichVus.ToList();
@@ -34,12 +37,14 @@ namespace WebGYMeo.Controllers
             return View(lstGoi);
         }
 
+        [Authentication]
         public IActionResult GioiThieu()
         {
 
             return View();
         }
 
+        [Authentication]
         public IActionResult ChiTietSanPham(String maSp)
         {
             var sanPham = db.SanPhams.SingleOrDefault(x => x.IdSanPham == maSp);
@@ -49,9 +54,18 @@ namespace WebGYMeo.Controllers
 
         }
 
+		[Authentication]
+		public IActionResult ChiTietDichVu(String maDv)
+		{
+			var goiDichVu = db.GoiDichVus.SingleOrDefault(x => x.IdGoi == maDv);
+			
+			return View(goiDichVu);
+
+		}
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

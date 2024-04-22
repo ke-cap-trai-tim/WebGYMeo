@@ -1,0 +1,83 @@
+﻿@using WebGYMeo.Models
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<KhachHang>
+
+@{
+    ViewData["Title"] = "DanhMucKhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Danh Mục Khách Hàng</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Khách Hàng
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Tên Đăng Nhập
+            </th>
+            <th>
+                Mật khẩu
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Giới Tính
+            </th>
+            <th>
+                Ảnh đại diện
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDangNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IbGioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnhDaiDien)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdKhach">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdKhach">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdKhach">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("DanhMucKhachHang", new { page = page }))
+</div>

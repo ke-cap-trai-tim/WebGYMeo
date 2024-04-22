@@ -28,6 +28,17 @@ namespace WebGYMeo.Areas.Admin.Controllers
             return View(lst);
 
         }
+
+        [Route("danhmuckhachhang")]
+        public IActionResult DanhMucKhachHang(int? page)
+        {
+            int pageSize = 8;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var lstkhachhang = db.KhachHangs.OrderBy(x => x.TenKhach);
+            PagedList<KhachHang> lst = new PagedList<KhachHang>(lstkhachhang, pageNumber, pageSize);
+            return View(lst);
+
+        }
         [Route("ThemSanPhamMoi")]
         [HttpGet]
         public IActionResult ThemSanPhamMoi()

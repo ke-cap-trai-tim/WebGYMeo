@@ -27,10 +27,10 @@
                         </p>
 
                         <p class="card-text">
-                            @item.Gia
+                            @item.Gia đ
                         </p>
 
-                        <a href="" class="btn btn-danger"> Mua</a>
+                        <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.IdSanPham" class="btn btn-danger"> Thêm vào giỏ</a>
                         <a asp-controller="Home" asp-action="ChiTietSanPham"
                            asp-route-maSp="@item.IdSanPham" class="btn btn-danger"> Xem chi tiết</a>
 
